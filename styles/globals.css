@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Microsoft JhengHei", "微軟正黑體", arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
