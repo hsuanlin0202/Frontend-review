@@ -40,12 +40,14 @@ jspm_packages
 .node_repl_history
 .next
 /.next
+next-env.d.ts
 
 .DS_Store
 
 yarn.lock
 .yarn.lock
 .yarn
+.yarnrc.yml
 .vscode
 # .eslintrc.js
 
