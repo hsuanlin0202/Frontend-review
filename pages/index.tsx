@@ -1,5 +1,5 @@
 const IndexPage = (): JSX.Element => {
-  return <>格上租車</>;
+  return <>React Review</>;
 };
 
 export default IndexPage;

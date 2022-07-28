@@ -13,7 +13,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/carplus.ico" />
         </Head>
-        <body>
+        <body className="bg-gray-lighter">
           <Main />
           <NextScript />
         </body>
