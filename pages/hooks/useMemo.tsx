@@ -28,16 +28,16 @@ const UseMemo = (): JSX.Element => {
 
   const [order, setOrder] = useState<{ fruit: string }>({ fruit: "" });
 
-  const select = useMemo(() => {
-    if (order.fruit === "chair") return { isFruit: false };
-    return { isFruit: true };
-  }, [order]);
+  //   const select = useMemo(() => {
 
-  useEffect(() => {
-    if (!order.fruit) return;
+  //     if (order.fruit === "chair") return { isFruit: false };
+  //     return { isFruit: true };
+  //   }, [order]);
 
-    console.log(`I ${select.isFruit ? "" : "didn't "} select a fruit.`);
-  }, [select]);
+  //   useEffect(() => {
+  //     if (!order.fruit) return;
+  //     console.log(`I ${select.isFruit ? "" : "didn't "} select a fruit.`);
+  //   }, [select]);
 
   return (
     <Layout.Base title="useMemo">
@@ -60,7 +60,7 @@ const UseMemo = (): JSX.Element => {
         <span> Change second input value doesn't call 'isEven' function. </span>
       </div>
 
-      <h2>Example 2</h2>
+      {/* <h2>Example 2</h2>
 
       <div>
         <select
@@ -72,7 +72,7 @@ const UseMemo = (): JSX.Element => {
           <option value="avocado">Avocado</option>
           <option value="chair">Chair</option>
         </select>
-      </div>
+      </div> */}
     </Layout.Base>
   );
 };

@@ -4,17 +4,12 @@ import "../styles/globals.css";
 import getConfig from "next/config";
 
 function MyApp({ Component, pageProps }: any) {
-  const { publicRuntimeConfig } = getConfig();
-
   return (
     <>
       <Head>
-        <title>格上租車</title>
+        <title>React Review</title>
       </Head>
       <Component {...pageProps} />
-      <span className="fixed top-0 right-0 px-2 text-sm bg-blue-system text-white z-100">
-        {publicRuntimeConfig.APP_VERSION}
-      </span>
     </>
   );
 }
