@@ -1,5 +1,5 @@
 import { Layout } from "components/Layout";
-import { ChangeEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, useMemo, useState } from "react";
 
 const slowFunction = () => {
   console.log("Calling other function which may be very slow.");
@@ -26,7 +26,7 @@ const UseMemo = (): JSX.Element => {
     setValue(e.target.value);
   };
 
-  const [order, setOrder] = useState<{ fruit: string }>({ fruit: "" });
+  // const [order, setOrder] = useState<{ fruit: string }>({ fruit: "" });
 
   //   const select = useMemo(() => {
 
