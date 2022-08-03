@@ -22,7 +22,7 @@ export function ContextTheme({ children }: ProviderProps) {
 
   return (
     <ThemeContext.Provider value={themes[currentTheme]}>
-      <div className="mb-10">
+      <div>
         <button
           type="button"
           className="border border-gray-dark px-2"
