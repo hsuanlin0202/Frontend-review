@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { useState } from "react";
 type ButtonProps = {
   onClick: () => void;

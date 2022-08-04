@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { useEffect, useState } from "react";
 
 const UseEffect = (): JSX.Element => {

@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  useContext,
+  useReducer,
+} from "react";
 
 const themes = {
   light: {
@@ -11,26 +17,50 @@ const themes = {
   },
 };
 
-const ThemeContext = createContext(themes.light);
+function changeThemes(
+  state: { word: string; background: string },
+  action: { type: "dark" | "light" }
+) {
+  switch (action.type) {
+    case "dark":
+      return themes[action.type];
+    case "light":
+      return themes[action.type];
+    default:
+      throw new Error();
+  }
+}
+
+type UseThemeProps = {
+  state: {
+    word: string;
+    background: string;
+  };
+  dispatch: Dispatch<{
+    type: "dark" | "light";
+  }>;
+};
+const ThemeContext = createContext<UseThemeProps | null>(null);
 
 type ProviderProps = {
   children: ReactNode;
 };
 
 export function ContextTheme({ children }: ProviderProps) {
-  const [currentTheme, setTheme] = useState<"light" | "dark">("light");
+  const initState = {
+    word: "#000000",
+    background: "#eeeeee",
+  };
+
+  const [state, dispatch] = useReducer(changeThemes, initState);
+
+  const ThemeProvider = {
+    state,
+    dispatch,
+  };
 
   return (
-    <ThemeContext.Provider value={themes[currentTheme]}>
-      <div>
-        <button
-          type="button"
-          className="border border-gray-dark px-2"
-          onClick={() => setTheme(currentTheme === "light" ? "dark" : "light")}
-        >
-          <span>Change Theme</span>
-        </button>
-      </div>
+    <ThemeContext.Provider value={ThemeProvider}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,4 +1,4 @@
-import { Layout } from "components/Layout";
+import { Layout } from "components/layout";
 import { useId, useState, useTransition } from "react";
 
 const UseTransition = (): JSX.Element => {
