@@ -23,6 +23,7 @@ export const Menu = [
       },
       { title: "Pure-Function", href: "/pure/pure-function" },
       { title: "Async & Await", href: "/pure/async" },
+      { title: "IIFEs", href: "/pure/iifes" },
     ],
   },
 ];
