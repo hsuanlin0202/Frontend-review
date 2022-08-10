@@ -59,7 +59,7 @@ module.exports = {
       current: "currentColor",
       white: "#fff",
       black: {
-        10: "#000",
+        DEFAULT: "#000",
         "1/10": "rgba(0,0,0,0.1)",
         "2/10": "rgba(0,0,0,0.2)",
         "3/10": "rgba(0,0,0,0.3)",

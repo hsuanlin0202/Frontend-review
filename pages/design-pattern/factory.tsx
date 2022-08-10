@@ -1,5 +1,7 @@
 import { Layout } from "components/layout";
 import { memo, useEffect, useState } from "react";
+
+// Children components
 const User1 = (props: PostTypes) => {
   console.log("user 1");
   return <div className="text-red-600">{props.title}</div>;
@@ -15,6 +17,7 @@ const User3 = (props: PostTypes) => {
   return <div className="text-blue-600">{props.title}</div>;
 };
 
+// Post UI factory
 type PostTypes = { id: number; title: string; userId: number };
 
 type PostFactoryProps = {
@@ -26,7 +29,7 @@ const PostFactory = ({ post, hard }: PostFactoryProps): JSX.Element => {
     return prevProps.userId === nextProps.userId;
   };
 
-  // cache data for avoiding expensive re-rendering.
+  // Cache data for avoiding expensive re-rendering.
   const User1Cache = memo(User1, areEqual);
   const User2Cache = memo(User2, areEqual);
   const User3Cache = memo(User3, areEqual);
