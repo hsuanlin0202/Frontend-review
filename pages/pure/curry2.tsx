@@ -35,7 +35,7 @@ const Curry2 = (): JSX.Element => {
 
   const curriedAddLog = curry(addLog);
 
-  // Curried function
+  // Curried function (pre-load: pass a value/ values and get a new function with it / them.)
   const pushTodayLog = () => curriedAddLog(new Date())(action)(message);
 
   const pushTodayAddLog = () => curriedAddLog(new Date())("ADD")(message);
