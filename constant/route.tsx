@@ -16,7 +16,8 @@ export const Menu = [
     subject: "Pure JS",
     page: [
       { title: "Closure", href: "/pure/closure" },
-      { title: "Curry", href: "/pure/curry" },
+      { title: "Curry1", href: "/pure/curry1" },
+      { title: "Curry2", href: "/pure/curry2" },
       {
         title: "HOC",
         href: "/pure/higher-order-components",

@@ -8,7 +8,7 @@ type ResponseTypes = {
   completed: boolean;
 };
 
-const Curry = (): JSX.Element => {
+const Curry1 = (): JSX.Element => {
   const [status, setStatus] = useState<string>("");
 
   const curriedFetchData = async (path: string) => {
@@ -60,7 +60,7 @@ const Curry = (): JSX.Element => {
   };
 
   return (
-    <Layout.Base title="curry">
+    <Layout.Base title="Curry - 1">
       <div className="flex flex-col space-y-4">
         <p>{status}</p>
         <button
@@ -83,4 +83,4 @@ const Curry = (): JSX.Element => {
   );
 };
 
-export default Curry;
+export default Curry1;
