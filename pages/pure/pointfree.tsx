@@ -1,16 +1,5 @@
 import { Layout } from "components/layout";
-import {
-  and,
-  both,
-  compose,
-  filter,
-  join,
-  map,
-  pipe,
-  prop,
-  reduce,
-  split,
-} from "ramda";
+import { both, filter, map, pipe, prop, reduce } from "ramda";
 import { useState } from "react";
 type DataTypes = {
   date: string;

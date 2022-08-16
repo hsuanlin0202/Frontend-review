@@ -19,6 +19,8 @@ export const Menu = [
       { title: "Curry1", href: "/pure/curry1" },
       { title: "Curry2", href: "/pure/curry2" },
       { title: "Compose", href: "/pure/compose" },
+      { title: "Point Free", href: "/pure/pointfree" },
+      { title: "Point Free Example", href: "/pure/pointfree2" },
       {
         title: "HOC",
         href: "/pure/higher-order-components",
