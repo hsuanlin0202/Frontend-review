@@ -16,11 +16,7 @@ export const Menu = [
     subject: "Pure JS",
     page: [
       { title: "Closure", href: "/pure/closure" },
-      { title: "Curry1", href: "/pure/curry1" },
-      { title: "Curry2", href: "/pure/curry2" },
-      { title: "Compose", href: "/pure/compose" },
-      { title: "Point Free", href: "/pure/pointfree" },
-      { title: "Point Free Example", href: "/pure/pointfree2" },
+
       {
         title: "HOC",
         href: "/pure/higher-order-components",
@@ -28,6 +24,20 @@ export const Menu = [
       { title: "Pure-Function", href: "/pure/pure-function" },
       { title: "Async & Await", href: "/pure/ana" },
       { title: "IIFEs", href: "/pure/iifes" },
+    ],
+  },
+  {
+    subject: "FP",
+    page: [
+      { title: "Curry1", href: "/functional-programming/curry1" },
+      { title: "Curry2", href: "/functional-programming/curry2" },
+      { title: "Compose", href: "/functional-programming/compose" },
+      { title: "Point Free", href: "/functional-programming/pointfree" },
+      {
+        title: "Point Free Example",
+        href: "/functional-programming/pointfree2",
+      },
+      { title: "FP List", href: "/functional-programming/list" },
     ],
   },
 ];
