@@ -19,6 +19,11 @@ const ErrorHandling = (): JSX.Element => {
     `{"data":[1, 5, "false"]}`
   );
 
+  const [email, setEmail] = useState<{ email: string; note: string }>({
+    email: "",
+    note: "",
+  });
+
   const errorHandler = () => {
     console.log(validateData(testInput));
   };
@@ -46,6 +51,24 @@ const ErrorHandling = (): JSX.Element => {
     decodeURIComponent("%");
   };
 
+  const validateEmail = () => {
+    try {
+      checkEmail();
+    } catch (e: any) {
+      setEmail({ ...email, note: e.message as string });
+    }
+  };
+
+  const checkEmail = () => {
+    if (email.email.length === 0)
+      throw new Error("Email address can not be empty.");
+
+    if (email.email.indexOf("@") === -1)
+      throw new Error("Please enter a valid email address.");
+
+    setEmail({ ...email, note: "Email address Passed." });
+  };
+
   return (
     <Layout.Base title="Error Handling">
       <div className="flex flex-col space-y-4">
@@ -65,7 +88,7 @@ const ErrorHandling = (): JSX.Element => {
 
         <div className="flex">
           <h3 className="font-bold mr-4">Range Error</h3>
-          <span>(3.14159).toFixed(100000)</span>
+          <code>(3.14159).toFixed(100000)</code>
           <button
             type="button"
             className="ml-4 px-2 border"
@@ -77,7 +100,7 @@ const ErrorHandling = (): JSX.Element => {
 
         <div className="flex">
           <h3 className="font-bold mr-4">Reference Error</h3>
-          <span>{`const boo = 0;`}</span>
+          <code>{`const boo = 0;`}</code>
           <button
             type="button"
             className="ml-4 px-2 border"
@@ -89,7 +112,7 @@ const ErrorHandling = (): JSX.Element => {
 
         <div className="flex">
           <h3 className="font-bold mr-4">Syntax Error</h3>
-          <span>{`if(a==1){ a++;`}</span>
+          <code>{`if(a==1){ a++;`}</code>
 
           <button
             type="button"
@@ -102,7 +125,7 @@ const ErrorHandling = (): JSX.Element => {
 
         <div className="flex">
           <h3 className="font-bold mr-4">Type Error</h3>
-          <span>{`bar();`}</span>
+          <code>{`bar();`}</code>
 
           <button
             type="button"
@@ -115,7 +138,7 @@ const ErrorHandling = (): JSX.Element => {
 
         <div className="flex">
           <h3 className="font-bold mr-4">URI Error</h3>
-          <span>{`decodeURIComponent("%");`}</span>
+          <code>{`decodeURIComponent("%");`}</code>
 
           <button
             type="button"
@@ -124,6 +147,25 @@ const ErrorHandling = (): JSX.Element => {
           >
             <span>Run</span>
           </button>
+        </div>
+        <hr />
+
+        <h2 className="text-xl font-bold">try...catch</h2>
+
+        <div className="flex items-center">
+          <h3 className="font-bold mr-4">Email</h3>
+          <input
+            type="text"
+            className="border px-2 mr-4"
+            value={email.email}
+            onChange={(e) => setEmail({ email: e.target.value, note: "" })}
+            placeholder="Insert Email"
+          />
+          <button type="button" className="px-2 border" onClick={validateEmail}>
+            <span>Check</span>
+          </button>
+
+          {email.note && <p className="text-sm text-red-500">{email.note}</p>}
         </div>
       </div>
     </Layout.Base>
