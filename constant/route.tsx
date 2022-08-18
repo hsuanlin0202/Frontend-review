@@ -21,7 +21,7 @@ export const Menu = [
         title: "HOC",
         href: "/pure/higher-order-components",
       },
-      { title: "Pure-Function", href: "/pure/pure-function" },
+      { title: "Error Handling", href: "/pure/er-handling" },
       { title: "Async & Await", href: "/pure/ana" },
       { title: "IIFEs", href: "/pure/iifes" },
     ],
