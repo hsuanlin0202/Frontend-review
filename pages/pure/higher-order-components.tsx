@@ -1,5 +1,6 @@
-import { Layout } from "components/layout";
 import { ComponentType, ReactNode } from "react";
+import clsx from "clsx";
+import { Layout } from "components/layout";
 
 type Base = { onClick: () => void };
 
@@ -8,7 +9,7 @@ const withLoggingOnClick = <TProps extends Base>(
 ) => {
   return (props: TProps) => {
     const onClick = () => {
-      console.log("Log on click something");
+      console.log("Log on click");
       props.onClick();
     };
 
@@ -43,10 +44,28 @@ const withLoggingOnClickWithProps = <TProps extends Base>(
   };
 };
 
-type ButtonProps = { children: ReactNode; onClick: () => void };
+type ButtonProps = {
+  className?: string;
+  children: ReactNode;
+  onClick: () => void;
+  disabled?: boolean;
+};
 
-const SimpleButton = ({ children, onClick }: ButtonProps) => {
-  return <button onClick={onClick}>{children}</button>;
+const SimpleButton = ({
+  className,
+  children,
+  onClick,
+  disabled,
+}: ButtonProps) => {
+  return (
+    <button
+      className={clsx("px-2 border", disabled && "bg-gray-normal", className)}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {children}
+    </button>
+  );
 };
 
 const ButtonWithLoggingOnClick = withLoggingOnClick(SimpleButton);
@@ -62,26 +81,31 @@ const ButtonWithLoggingOnClickWithProps =
 const HOC = (): JSX.Element => {
   return (
     <Layout.Base title="Higher Order Components">
-      <>
+      <div className="flex flex-col space-y-4 ">
+        <SimpleButton onClick={() => alert("Simple button")}>
+          Simple Button
+        </SimpleButton>
+
         <ButtonWithLoggingOnClick
-          onClick={() => console.log("Button With Logging OnClick")}
+          className=""
+          onClick={() => alert("Button With Logging OnClick")}
         >
           With logging on click
         </ButtonWithLoggingOnClick>
 
         <ButtonWithLoggingOnClickWithParams
-          onClick={() => console.log("Button With Logging OnClick With Params")}
+          onClick={() => alert("Button With Logging OnClick With Params")}
         >
           With logging on click with params
         </ButtonWithLoggingOnClickWithParams>
 
         <ButtonWithLoggingOnClickWithProps
-          onClick={() => console.log("Button With Logging OnClick With Props")}
+          onClick={() => alert("Button With Logging OnClick With Props")}
           logText="this is Page button"
         >
           With logging on click with props
         </ButtonWithLoggingOnClickWithProps>
-      </>
+      </div>
     </Layout.Base>
   );
 };
